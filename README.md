@@ -1,313 +1,370 @@
-# 🌟 Git Interactive Cheatsheet – Beginner Friendly
+# 🌟 Git & GitHub Complete Cheatsheet (Grouped & Updated)
 
-> 🚀 A step-by-step guide to learning Git with commands, outputs, tips, and exercises.  
-> Perfect for beginners who want to **practice Git confidently**.
-
----
-
-## 🧭 Overview
-
-**What you’ll learn:**  
-✅ Step-by-step Git commands  
-📤 Real Output examples  
-💡 Pro Tips and Warnings  
-🎯 Practice exercises  
-🌿 Advanced Git usage
+এই ডকুমেন্টে Git এবং GitHub-এর **সব প্রয়োজনীয় ও প্রচলিত কমান্ডগুলোকে গ্রুপ করে সাজানো হয়েছে**, যাতে যেকোনো সময় খুব সহজে দেখতে পারেন।
 
 ---
 
-## 1️⃣ Check Git Installation & Version
+# 🧭 1) Git Installation & Configuration
 
-```bash
-git -v
+### ✔️ Check Git Installation
+```
+git --version
 ```
 
-**💻 Output:**
-
+### ✔️ Configure User Info (Required)
 ```
-git version 2.51.0.windows.1
-```
-
-**💡 Tips:**
-
-- নিশ্চিত করুন Git ইনস্টল আছে।
-- Update করতে চাইলে Git-এর অফিসিয়াল ওয়েবসাইট থেকে নতুন ভার্সন ডাউনলোড করুন।
-
-**🎯 Practice:**  
-Check Git version on your own machine.
-
----
-
-## 2️⃣ Configure User Details
-
-```bash
 git config --global user.name "Your Name"
 git config --global user.email "your_email@example.com"
 ```
 
-**💡 Tips:**
-
-- Commit এর author name এবং email সেট হয়।
-- যাচাই করতে:
-  ```bash
-  git config --get user.name
-  git config --get user.email
-  ```
-
-**🎯 Practice:**  
-নিজের নাম ও ইমেইল সেট করে তা যাচাই করুন।
+### ✔️ View Config
+```
+git config --get user.name
+git config --get user.email
+```
 
 ---
 
-## 3️⃣ Initialize a New Repository
+# 📁 2) Repository Management
 
-```bash
+### ✔️ Initialize Repo
+```
 git init
 ```
 
-**💻 Output:**
-
+### ✔️ Clone Repository
 ```
-Initialized empty Git repository in <path>/.git/
-```
-
-**💡 Tips:**
-
-- এটি `.git` নামে একটি hidden folder তৈরি করে যেখানে Git সব তথ্য সংরক্ষণ করে।
-
-**🎯 Practice:**  
-নতুন একটি ফোল্ডারে এই কমান্ড চালান এবং `.git` ফোল্ডারটি দেখুন।
-
----
-
-## 4️⃣ Create & Edit a File
-
-```bash
-touch test.txt
-vi test.txt
+git clone <repo-url>
 ```
 
-**💡 Tips:**
-
-- `touch` → নতুন ফাইল তৈরি করে
-- `vi` → ফাইল edit করার জন্য
-  - `i` → insert mode
-  - `Esc + :wq` → save & exit
-
-**🎯 Practice:**  
-একাধিক ফাইল তৈরি করুন এবং কিছু টেক্সট লিখুন।
-
----
-
-## 5️⃣ Check Git Status
-
-```bash
+### ✔️ Check Repo Status
+```
 git status
 ```
 
-**💻 Output:**
-
-```
-On branch master
-No commits yet
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-  test.txt
-```
-
-**💡 Tips:**
-
-- Untracked মানে ফাইল এখনো Git এ ট্র্যাক হচ্ছে না।
-- পরিবর্তন হলে `modified` দেখাবে।
-
-**🎯 Practice:**  
-একটা ফাইল edit করে `git status` চালান।
-
 ---
 
-## 6️⃣ Add Files to Staging Area
+# 📂 3) File & Staging Operations
 
-```bash
+### ✔️ Add Files
+```
 git add .
-# or
-git add test.txt
+git add <file>
 ```
 
-**💡 Tips:**
+### ✔️ Commit Changes
+```
+git commit -m "message"
+```
 
-- `git add .` → সব ফাইল stage করবে
-- `git add <file>` → নির্দিষ্ট ফাইল stage করবে
-
-**🎯 Practice:**  
-বিভিন্ন ফাইল add করুন এবং আবার `git status` দেখুন।
+### ✔️ Remove Files
+```
+git rm <file>
+git rm --cached <file>
+```
 
 ---
 
-## 7️⃣ Commit Changes
+# 📜 4) View History
 
-```bash
-git commit -m "Initial commit"
+### ✔️ Full History
 ```
-
-**💻 Output:**
-
-```
-[master (root-commit) <hash>] Initial commit
-1 file changed, 0 insertions(+), 0 deletions(-)
-create mode 100644 test.txt
-```
-
-**💡 Tips:**
-
-- ছোট কিন্তু বর্ণনামূলক commit message ব্যবহার করুন।
-
-**🎯 Practice:**  
-একাধিক commit তৈরি করুন এবং ভিন্ন ভিন্ন মেসেজ দিন।
-
----
-
-## 8️⃣ View Commit History
-
-```bash
 git log
+```
+
+### ✔️ One-line History
+```
 git log --oneline
 ```
 
-**💡 Tips:**
-
-- `git log` → বিস্তারিত commit history
-- `git log --oneline` → সংক্ষিপ্তভাবে commit তালিকা
-
-**🎯 Practice:**  
-৩-৪টি commit করার পর history দেখুন।
-
----
-
-## ⚡ Pro Tips
-
-🔹 Step 4–6 এর অনেক command silent থাকে (কোন output দেয় না)  
-🔹 Commit করার আগে সবসময় `git status` চেক করুন  
-🔹 Regular commit করুন — বড় পরিবর্তন জমিয়ে রাখবেন না  
-🔹 Visual graph দেখতে পারেন:
-
-```bash
+### ✔️ Graph View
+```
 git log --graph --oneline --all
 ```
 
 ---
 
-## 🧩 Advanced Git Commands
+# 🌿 5) Branch Management (Most Used)
 
-### 🔁 Undo / Reset
-
-```bash
-git reflog
-git reset --hard <commit_hash>
+### ✔️ List Branches
+```
+git branch
 ```
 
-**💡 Tips:**
-
-- `git reflog` → commit history (HEAD movement) দেখায়
-- `git reset --hard` → নির্দিষ্ট commit এ ফিরে যায় (সব পরিবর্তন মুছে দেয়)
-
-**⚠️ সতর্কতা:**  
-`--hard` ব্যবহার করলে unstaged changes মুছে যাবে!
-
----
-
-### 🗑️ Remove Files
-
-```bash
-git rm test.txt
-git rm --cached test.txt
+### ✔️ Create Branch
 ```
-
-**💡 পার্থক্য:**
-
-- `git rm` → working directory থেকে ফাইল মুছে দেয়
-- `git rm --cached` → শুধুমাত্র staging থেকে remove করে, লোকাল ফাইল থাকে
-
----
-
-### 🌿 Branch Management
-
-```bash
-git branch --list
 git branch <branchName>
-git switch <branchName>
-git branch -a
-git merge <branchName>
-git branch -m <newName>
-git branch -d <branchName>
-git branch -D <branchName>
 ```
 
-**💡 Tips:**
+### ✔️ Switch Branch
+```
+git switch <branchName>
+```
 
-- `git branch` → branch তালিকা
-- `git switch` → branch পরিবর্তন
-- `git merge` → branch merge
-- `-d` → safe delete
-- `-D` → force delete
+### ✔️ Rename Branch
+```
+git branch -m <newName>
+```
+
+### ✔️ Delete Branch
+```
+git branch -d <branchName>    # safe delete
+git branch -D <branchName>    # force delete
+```
+
+### ✔️ Merge Branch
+```
+git merge <branchName>
+```
 
 ---
 
-### 💾 Stash (Temporary Save Work)
+# 💾 6) Stash (Temporary Save)
 
-```bash
+### ✔️ Save Stash
+```
 git stash save "Work in progress"
+```
+
+### ✔️ Show Stash Details
+```
 git stash show -p
+```
+
+### ✔️ Restore Stash
+```
 git stash pop
 ```
 
-**💡 Tips:**
+---
 
-- অস্থায়ীভাবে কাজ save করে
-- `git stash pop` → পুনরায় restore করে
+# ♻️ 7) Undo / Reset / Restore
+
+### ✔️ Reflog (HEAD History)
+```
+git reflog
+```
+
+### ✔️ Reset to a Commit
+```
+git reset --hard <hash>
+```
+
+⚠️ সতর্কতা: `--hard` unstaged changes মুছে দেয়।
 
 ---
 
-## 🧠 Bonus Practice Exercise
+# 🌍 8) GitHub Commands (Most Important)
 
-1. Create a new project folder
-2. Initialize Git
-3. Add and edit 3 files
-4. Stage and commit them
-5. Modify one file and check `git status`
-6. Use `git log --oneline` to track changes
-7. Try `git branch` and `git stash` practically
+### ✔️ Add Remote Origin
+```
+git remote add origin <repo-url>
+```
 
----
+### ✔️ Check Remote
+```
+git remote -v
+```
 
-## 📚 Summary
+### ✔️ Push Code
+```
+git push -u origin main
+```
 
-| Topic         | Command Example       | Purpose              |
-| ------------- | --------------------- | -------------------- |
-| Check version | `git -v`              | Git version check    |
-| User config   | `git config --global` | Set name & email     |
-| Init repo     | `git init`            | Start new repository |
-| Status        | `git status`          | Show file changes    |
-| Add files     | `git add .`           | Stage changes        |
-| Commit        | `git commit -m`       | Save snapshot        |
-| History       | `git log`             | View commits         |
-| Branch        | `git branch`          | Manage branches      |
-| Reset         | `git reset`           | Undo commits         |
+### ✔️ Pull Latest Code
+```
+git pull origin main
+```
 
----
-
-## 🏁 Conclusion
-
-✨ **Now you know how to:**
-
-- Track files with Git
-- Commit and manage changes
-- Explore history and branches
-- Recover lost work using reset & stash
-
-> 🔥 Practice regularly — the best way to master Git!
+### ✔️ Fetch (Only Download Updates)
+```
+git fetch origin
+```
 
 ---
 
-**👨‍💻 Author:** ANWARUL KARIM
-**📅 Updated:** November 2025  
-**🧷 License:** Free to share & modify
+# 🔁 9) Common Fix Commands
+
+### ✔️ Fix: Overwritten File Recovery
+```
+git checkout -- <file>
+```
+
+### ✔️ Fix: Undo Last Commit (Keep Code)
+```
+git reset --soft HEAD~1
+```
+
+### ✔️ Fix: Remove All Local Changes
+```
+git reset --hard
+```
+
+---
+
+# 📦 10) Git Ignore
+
+### ✔️ Create `.gitignore`
+```
+touch .gitignore
+```
+
+### ✔️ Common Patterns
+```
+node_modules/
+dist/
+.env
+```
+
+---
+
+# 📚 11) Summary Table
+
+| Category | Commands |
+|----------|-----------|
+| Install & Config | `git --version`, `git config` |
+| Repo | `git init`, `git clone` |
+| Stage & Commit | `git add`, `git commit` |
+| History | `git log`, `git log --oneline` |
+| Branch | `git branch`, `git switch`, `git merge` |
+| Stash | `git stash` |
+| Undo | `git reset`, `git reflog` |
+| GitHub | `git push`, `git pull`, `git remote` |
+
+---
+
+# 🏁 Conclusion
+এই Cheatsheet আপনার Git ও GitHub workflow কে **দ্রুত, পরিষ্কার এবং professional** করবে। প্রয়োজনে সহজে খুঁজে পাওয়া যায় এমনভাবে সবকিছু গ্রুপ করা আছে।
+
+---
+
+**Author:** ANWARUL KARIM
+**Updated:** 2025
+
+
+---
+
+# 🚀 12) GitHub SSH Setup
+
+### ✔️ Generate SSH Key
+```
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+### ✔️ Start SSH Agent
+```
+eval $(ssh-agent -s)
+```
+
+### ✔️ Add Key to Agent
+```
+ssh-add ~/.ssh/id_rsa
+```
+
+### ✔️ Copy Public Key (Add to GitHub)
+```
+cat ~/.ssh/id_rsa.pub
+```
+
+---
+
+# 🍴 13) GitHub Fork Workflow
+
+### ✔️ Fork → Clone
+```
+git clone <forked-repo-url>
+```
+
+### ✔️ Add Upstream Remote
+```
+git remote add upstream <original-repo-url>
+```
+
+### ✔️ Sync Fork
+```
+git fetch upstream
+git merge upstream/main
+```
+
+---
+
+# 🔄 14) Pull Request (PR) Workflow
+
+### ✔️ Create a New Branch
+```
+git switch -c feature-branch
+```
+
+### ✔️ Stage & Commit
+```
+git add .
+git commit -m "Added new feature"
+```
+
+### ✔️ Push Branch
+```
+git push origin feature-branch
+```
+
+### ✔️ Create Pull Request
+GitHub → Compare & Pull Request → Submit.
+
+---
+
+# 🔀 15) Rebase & Cherry-pick
+
+### ✔️ Rebase (Clean History)
+```
+git rebase main
+```
+
+### ✔️ Abort Rebase
+```
+git rebase --abort
+```
+
+### ✔️ Cherry-pick (Pick Specific Commit)
+```
+git cherry-pick <commit-hash>
+```
+
+---
+
+# ⚔️ 16) Solve Merge Conflicts
+
+### ✔️ When conflict occurs
+Git will show conflict markers like:
+```
+<<<<<<< HEAD
+=======
+>>>>>>> branch
+```
+
+### ✔️ Fix File → Then Run
+```
+git add <file>
+git commit
+```
+
+---
+
+# 🧭 17) Git Flow (Branch Strategy)
+
+### ✔️ Main Branches
+- `main` → production
+- `develop` → development
+
+### ✔️ Supporting Branches
+- `feature/*`
+- `release/*`
+- `hotfix/*`
+
+### ✔️ Example
+```
+git switch -c feature/login
+# work...
+git commit -m "login added"
+git switch develop
+git merge feature/login
+```
+
