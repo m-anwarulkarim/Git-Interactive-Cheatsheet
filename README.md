@@ -1,44 +1,38 @@
-# 🌟 Git & GitHub Complete Cheatsheet (Grouped & Updated)
+````markdown
+# 🌟 Git & GitHub Complete Cheatsheet (Color-coded & Updated)
 
-এই ডকুমেন্টে Git এবং GitHub-এর **সব প্রয়োজনীয় ও প্রচলিত কমান্ডগুলোকে গ্রুপ করে সাজানো হয়েছে**, যাতে যেকোনো সময় খুব সহজে দেখা জায় ।
+> এই Cheatsheet-এ Git এবং GitHub-এর প্রয়োজনীয় সব কমান্ড একসাথে সাজানো হয়েছে, logical এবং color-coded view সহ।
 
 ---
 
 # 🧭 1) Git Installation & Configuration
 
-### ✔️ Check Git Installation
-```
+```bash
+# Check Git Version
 git --version
-```
 
-### ✔️ Configure User Info (Required)
-```
+# Configure User Info
 git config --global user.name "Your Name"
 git config --global user.email "your_email@example.com"
-```
 
-### ✔️ View Config
-```
+# View Config
 git config --get user.name
 git config --get user.email
 ```
+````
 
 ---
 
 # 📁 2) Repository Management
 
-### ✔️ Initialize Repo
-```
+```bash
+# Initialize Repository
 git init
-```
 
-### ✔️ Clone Repository
-```
+# Clone Repository
 git clone <repo-url>
-```
 
-### ✔️ Check Repo Status
-```
+# Check Repo Status
 git status
 ```
 
@@ -46,19 +40,15 @@ git status
 
 # 📂 3) File & Staging Operations
 
-### ✔️ Add Files
-```
+```bash
+# Add Files
 git add .
 git add <file>
-```
 
-### ✔️ Commit Changes
-```
+# Commit Changes
 git commit -m "message"
-```
 
-### ✔️ Remove Files
-```
+# Remove Files
 git rm <file>
 git rm --cached <file>
 ```
@@ -67,53 +57,39 @@ git rm --cached <file>
 
 # 📜 4) View History
 
-### ✔️ Full History
-```
+```bash
+# Full History
 git log
-```
 
-### ✔️ One-line History
-```
+# One-line History
 git log --oneline
-```
 
-### ✔️ Graph View
-```
+# Graph View
 git log --graph --oneline --all
 ```
 
 ---
 
-# 🌿 5) Branch Management (Most Used)
+# 🌿 5) Branch Management
 
-### ✔️ List Branches
-```
+```bash
+# List Branches
 git branch
-```
 
-### ✔️ Create Branch
-```
+# Create Branch
 git branch <branchName>
-```
 
-### ✔️ Switch Branch
-```
+# Switch Branch
 git switch <branchName>
-```
 
-### ✔️ Rename Branch
-```
+# Rename Branch
 git branch -m <newName>
-```
 
-### ✔️ Delete Branch
-```
+# Delete Branch
 git branch -d <branchName>    # safe delete
 git branch -D <branchName>    # force delete
-```
 
-### ✔️ Merge Branch
-```
+# Merge Branch
 git merge <branchName>
 ```
 
@@ -121,18 +97,14 @@ git merge <branchName>
 
 # 💾 6) Stash (Temporary Save)
 
-### ✔️ Save Stash
-```
+```bash
+# Save Stash
 git stash save "Work in progress"
-```
 
-### ✔️ Show Stash Details
-```
+# Show Stash Details
 git stash show -p
-```
 
-### ✔️ Restore Stash
-```
+# Restore Stash
 git stash pop
 ```
 
@@ -140,77 +112,80 @@ git stash pop
 
 # ♻️ 7) Undo / Reset / Restore
 
-### ✔️ Reflog (HEAD History)
-```
+```bash
+# View HEAD History
 git reflog
-```
 
-### ✔️ Reset to a Commit
+# Reset to a Commit
+git reset --hard <hash>  # WARNING: deletes unstaged changes
 ```
-git reset --hard <hash>
-```
-
-⚠️ সতর্কতা: `--hard` unstaged changes মুছে দেয়।
 
 ---
 
-# 🌍 8) GitHub Commands (Most Important)
+# 🌍 8) GitHub Commands
 
-### ✔️ Add Remote Origin
-```
+```bash
+# Add Remote
 git remote add origin <repo-url>
-```
 
-### ✔️ Check Remote
-```
+# Check Remote
 git remote -v
-```
 
-### ✔️ Push Code
-```
+# Push Code
 git push -u origin main
-```
 
-### ✔️ Pull Latest Code
-```
+# Pull Latest Code
 git pull origin main
-```
 
-### ✔️ Fetch (Only Download Updates)
-```
+# Fetch (Download Updates Only)
 git fetch origin
 ```
 
 ---
 
-# 🔁 9) Common Fix Commands
+# 🔥 9) Git History Rewrite & Force Push
 
-### ✔️ Fix: Overwritten File Recovery
+```bash
+rm -rf .git
+git init
+git add .
+git commit -m "Initial public release"
+git branch -M main
+git remote add origin <repo-url>
+git push -u --force origin main
 ```
+
+> **Quick Summary:**
+>
+> - Deletes old history
+> - Creates new initial commit
+> - Pushes current code only
+>   ⚠️ Warning: Previous commit history will be gone!
+
+---
+
+# 🔁 10) Common Fix Commands
+
+```bash
+# Recover Overwritten File
 git checkout -- <file>
-```
 
-### ✔️ Fix: Undo Last Commit (Keep Code)
-```
+# Undo Last Commit (keep code)
 git reset --soft HEAD~1
-```
 
-### ✔️ Fix: Remove All Local Changes
-```
+# Remove All Local Changes
 git reset --hard
 ```
 
 ---
 
-# 📦 10) Git Ignore
+# 📦 11) Git Ignore
 
-### ✔️ Create `.gitignore`
-```
+```bash
+# Create .gitignore
 touch .gitignore
-```
 
-### ✔️ Common Patterns
-```
+# Common Patterns
 node_modules/
 dist/
 .env
@@ -218,144 +193,121 @@ dist/
 
 ---
 
-# 📚 11) Summary Table
+# 📚 12) Summary Table
 
-| Category | Commands |
-|----------|-----------|
-| Install & Config | `git --version`, `git config` |
-| Repo | `git init`, `git clone` |
-| Stage & Commit | `git add`, `git commit` |
-| History | `git log`, `git log --oneline` |
-| Branch | `git branch`, `git switch`, `git merge` |
-| Stash | `git stash` |
-| Undo | `git reset`, `git reflog` |
-| GitHub | `git push`, `git pull`, `git remote` |
+| Category         | Commands                                |
+| ---------------- | --------------------------------------- |
+| Install & Config | `git --version`, `git config`           |
+| Repo             | `git init`, `git clone`                 |
+| Stage & Commit   | `git add`, `git commit`                 |
+| History          | `git log`, `git log --oneline`          |
+| Branch           | `git branch`, `git switch`, `git merge` |
+| Stash            | `git stash`                             |
+| Undo             | `git reset`, `git reflog`               |
+| GitHub           | `git push`, `git pull`, `git remote`    |
 
 ---
 
 **Author:** ANWARUL KARIM
 **Updated:** 2025
 
-
 ---
 
-# 🚀 12) GitHub SSH Setup
+# 🚀 13) GitHub SSH Setup
 
-### ✔️ Generate SSH Key
-```
+```bash
+# Generate SSH Key
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-```
 
-### ✔️ Start SSH Agent
-```
+# Start SSH Agent
 eval $(ssh-agent -s)
-```
 
-### ✔️ Add Key to Agent
-```
+# Add Key to Agent
 ssh-add ~/.ssh/id_rsa
-```
 
-### ✔️ Copy Public Key (Add to GitHub)
-```
+# Copy Public Key to Add in GitHub
 cat ~/.ssh/id_rsa.pub
 ```
 
 ---
 
-# 🍴 13) GitHub Fork Workflow
+# 🍴 14) GitHub Fork Workflow
 
-### ✔️ Fork → Clone
-```
+```bash
+# Fork → Clone
 git clone <forked-repo-url>
-```
 
-### ✔️ Add Upstream Remote
-```
+# Add Upstream Remote
 git remote add upstream <original-repo-url>
-```
 
-### ✔️ Sync Fork
-```
+# Sync Fork
 git fetch upstream
 git merge upstream/main
 ```
 
 ---
 
-# 🔄 14) Pull Request (PR) Workflow
+# 🔄 15) Pull Request Workflow
 
-### ✔️ Create a New Branch
-```
+```bash
+# Create Feature Branch
 git switch -c feature-branch
-```
 
-### ✔️ Stage & Commit
-```
+# Stage & Commit
 git add .
 git commit -m "Added new feature"
-```
 
-### ✔️ Push Branch
-```
+# Push Branch
 git push origin feature-branch
-```
 
-### ✔️ Create Pull Request
-GitHub → Compare & Pull Request → Submit.
+# Create Pull Request via GitHub Web UI
+```
 
 ---
 
-# 🔀 15) Rebase & Cherry-pick
+# 🔀 16) Rebase & Cherry-pick
 
-### ✔️ Rebase (Clean History)
-```
+```bash
+# Rebase (Clean History)
 git rebase main
-```
 
-### ✔️ Abort Rebase
-```
+# Abort Rebase
 git rebase --abort
-```
 
-### ✔️ Cherry-pick (Pick Specific Commit)
-```
+# Cherry-pick Commit
 git cherry-pick <commit-hash>
 ```
 
 ---
 
-# ⚔️ 16) Solve Merge Conflicts
+# ⚔️ 17) Solve Merge Conflicts
 
-### ✔️ When conflict occurs
-Git will show conflict markers like:
-```
-<<<<<<< HEAD
+```bash
+# Conflict markers:
+
 =======
->>>>>>> branch
-```
 
-### ✔️ Fix File → Then Run
-```
+
+# Fix, then:
 git add <file>
 git commit
 ```
 
 ---
 
-# 🧭 17) Git Flow (Branch Strategy)
+# 🧭 18) Git Flow (Branch Strategy)
 
-### ✔️ Main Branches
-- `main` → production
-- `develop` → development
+```bash
+# Main Branches
+main    # production
+develop # development
 
-### ✔️ Supporting Branches
-- `feature/*`
-- `release/*`
-- `hotfix/*`
+# Supporting Branches
+feature/*
+release/*
+hotfix/*
 
-### ✔️ Example
-```
+# Example Workflow
 git switch -c feature/login
 # work...
 git commit -m "login added"
@@ -363,3 +315,7 @@ git switch develop
 git merge feature/login
 ```
 
+```
+
+
+```
