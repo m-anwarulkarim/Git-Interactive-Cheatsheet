@@ -2,7 +2,7 @@
 # Git Credential & User Config Guide
 
 এই ডকুমেন্টে Git-এর কিছু গুরুত্বপূর্ণ কমান্ডের কাজ ব্যাখ্যা করা হলো।  
-এগুলো ব্যবহার করে আপনি আপনার GitHub credential এবং user identity ম্যানেজ করতে পারবেন।
+এগুলো ব্যবহার করে  GitHub credential এবং user identity ম্যানেজ করা যায় ।
 
 ---
 
@@ -18,7 +18,7 @@ git config --global --unset user.email
 - **user.name আনসেট:** global Git configuration থেকে `user.name` মুছে দেয়।
 - **user.email আনসেট:** global Git configuration থেকে `user.email` মুছে দেয়।
 
-### কখন ব্যবহার করবেন
+### কখন ব্যবহার করতে  হবে 
 - পুরনো বা ভুলভাবে সেট করা নাম/ইমেইল রিসেট করতে হলে।
 
 ---
@@ -30,7 +30,7 @@ git config --global --unset user.email
 git credential-manager erase
 ```
 
-এরপর নিচের ইনপুট দিন:
+এরপর নিচের ইনপুট দিতে হবে:
 ```text
 protocol=https
 host=github.com
@@ -38,10 +38,11 @@ username=your-username
 ```
 
 ### কাজ
-- নির্দিষ্ট host (`github.com`) এবং আপনার username অনুযায়ী সংরক্ষিত credential মুছে দেয়।
+- নির্দিষ্ট host (`github.com`) এবং র username অনুযায়ী সংরক্ষিত credential মুছে দেয়।
 
 ### নোট
-- `your-username` এর জায়গায় আপনার আসল GitHub username দিন (উদাহরণ: `m-anwarulkarim`)।
+- `your-username` এর জায়গায়  আসল GitHub username দিতে হবে (উদাহরণ: `m-anwarulkarim`)।
+- 
 - মুছে ফেলার পর পরবর্তী `git push/pull` এ নতুন credential চাইবে (PAT ব্যবহার করা উত্তম)।
 
 ---
@@ -55,12 +56,12 @@ git config --global user.email "dev.anwarul@gmail.com"
 ```
 
 ### কাজ
-- **user.name সেট:** আপনার কমিটগুলোতে প্রদর্শিত নাম নির্ধারণ করে।
-- **user.email সেট:** আপনার কমিটগুলো GitHub প্রোফাইলের সাথে সঠিকভাবে লিঙ্ক হতে সাহায্য করে।
+- **user.name সেট:**  কমিটগুলোতে প্রদর্শিত নাম নির্ধারণ করে।
+- **user.email সেট:**  কমিটগুলো GitHub প্রোফাইলের সাথে সঠিকভাবে লিঙ্ক হতে সাহায্য করে।
 
 ### টিপস
-- ইমেইলটি আপনার GitHub অ্যাকাউন্টে ব্যবহৃত/ভেরিফাইড ইমেইল হওয়া উচিত।
-- প্রয়োজন হলে চেক করুন:
+- ইমেইলটি  GitHub অ্যাকাউন্টে ব্যবহৃত/ভেরিফাইড ইমেইল হওয়া উচিত।
+- প্রয়োজন হলে চেক দিতে হবে:
   ```bash
   git config --get user.name
   git config --get user.email
@@ -70,30 +71,30 @@ git config --global user.email "dev.anwarul@gmail.com"
 
 ## ✅ সারসংক্ষেপ (ধাপে ধাপে)
 
-1. **পুরনো কনফিগ আনসেট করুন:**  
+1. **পুরনো কনফিগ আনসেট করা :**  
    ```bash
    git config --global --unset user.name
    git config --global --unset user.email
    ```
 
-2. **পুরনো credential মুছে ফেলুন:**  
+2. **পুরনো credential মুছে ফেলা :**  
    ```bash
    git credential-manager erase
    ```
-   তারপর ইনপুট দিন:
+   তারপর ইনপুট দেওয়া :
    ```text
    protocol=https
    host=github.com
    username=your-username
    ```
 
-3. **নতুন কনফিগ সেট করুন:**  
+3. **নতুন কনফিগ সেট করা :**  
    ```bash
    git config --global user.name "anwarul karim"
    git config --global user.email "dev.anwarul@gmail.com"
    ```
 
-4. **যাচাই করুন:**  
+4. **যাচাই করা :**  
    ```bash
    git config --list
    ```
