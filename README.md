@@ -1,7 +1,8 @@
-````markdown
+  
 # 🌟 Git & GitHub Complete Cheatsheet (Color-coded & Updated)
 
-> এই Cheatsheet-এ Git এবং GitHub-এর প্রয়োজনীয় সব কমান্ড একসাথে সাজানো হয়েছে, logical এবং color-coded view সহ।
+> এই Cheatsheet-এ Git এবং GitHub-এর প্রয়োজনীয় সব কমান্ড একসাথে সাজানো হয়েছে।  
+> প্রতিটি সেকশন logical flow অনুযায়ী সাজানো এবং সহজে মনে রাখার জন্য category-wise ভাগ করা হয়েছে।
 
 ---
 
@@ -11,25 +12,30 @@
 # Check Git Version
 git --version
 
-# Configure User Info
+# Configure User Info (Global)
 git config --global user.name "Your Name"
 git config --global user.email "your_email@example.com"
 
 # View Config
 git config --get user.name
 git config --get user.email
+
+# Unset Old Config
+git config --global --unset user.name
+git config --global --unset user.email
 ```
-````
+
+👉 **Tip:** Username এবং Email অবশ্যই আপনার GitHub account-এর সাথে যুক্ত হতে হবে, নাহলে commit গুলো আপনার প্রোফাইলে reflect করবে না।
 
 ---
 
 # 📁 2) Repository Management
 
 ```bash
-# Initialize Repository
+# Initialize Repository (Local)
 git init
 
-# Clone Repository
+# Clone Repository (Remote → Local)
 git clone <repo-url>
 
 # Check Repo Status
@@ -53,6 +59,8 @@ git rm <file>
 git rm --cached <file>
 ```
 
+👉 **Tip:** `git add .` সব ফাইল stage করে, আর `git add <file>` নির্দিষ্ট ফাইল stage করে।
+
 ---
 
 # 📜 4) View History
@@ -64,7 +72,7 @@ git log
 # One-line History
 git log --oneline
 
-# Graph View
+# Graph View (Visual)
 git log --graph --oneline --all
 ```
 
@@ -93,6 +101,8 @@ git branch -D <branchName>    # force delete
 git merge <branchName>
 ```
 
+👉 **Tip:** `git switch` নতুন Git version-এ branch পরিবর্তনের জন্য preferred।
+
 ---
 
 # 💾 6) Stash (Temporary Save)
@@ -108,6 +118,8 @@ git stash show -p
 git stash pop
 ```
 
+👉 **Tip:** Stash ব্যবহার করলে আপনি temporary কাজ save করে অন্য branch-এ যেতে পারবেন।
+
 ---
 
 # ♻️ 7) Undo / Reset / Restore
@@ -119,6 +131,8 @@ git reflog
 # Reset to a Commit
 git reset --hard <hash>  # WARNING: deletes unstaged changes
 ```
+
+👉 **Tip:** `git reflog` হলো আপনার safety net — যেকোনো commit/branch movement track করতে পারবেন।
 
 ---
 
@@ -155,12 +169,8 @@ git remote add origin <repo-url>
 git push -u --force origin main
 ```
 
-> **Quick Summary:**
->
-> - Deletes old history
-> - Creates new initial commit
-> - Pushes current code only
->   ⚠️ Warning: Previous commit history will be gone!
+> ⚠️ **Warning:** পুরনো commit history মুছে যাবে।  
+> নতুন করে initial commit তৈরি হবে এবং force push দিয়ে GitHub-এ যাবে।
 
 ---
 
@@ -191,6 +201,8 @@ dist/
 .env
 ```
 
+👉 **Tip:** `.gitignore` ফাইল sensitive data এবং unnecessary build files বাদ দিতে সাহায্য করে।
+
 ---
 
 # 📚 12) Summary Table
@@ -208,8 +220,8 @@ dist/
 
 ---
 
-**Author:** ANWARUL KARIM
-**Updated:** 2025
+**Author:** ANWARUL KARIM  
+**Updated:** 2025  
 
 ---
 
@@ -287,8 +299,7 @@ git cherry-pick <commit-hash>
 
 =======
 
-
-# Fix, then:
+# Fix conflict manually, then:
 git add <file>
 git commit
 ```
@@ -315,7 +326,33 @@ git switch develop
 git merge feature/login
 ```
 
+---
+
+# 🔑 19) Credential Management (Windows)
+
+```bash
+# Erase stored GitHub credential
+git credential-manager erase
+protocol=https
+host=github.com
+username=your-username
 ```
 
+👉 **GUI Path:**  
+Start → Control Panel → Credential Manager → Windows Credentials → GitHub entry → Remove  
+
+---
+
+# ✅ 20) Quick Troubleshooting
+
+- **Credential Error:** PAT ব্যবহার করুন (password-এর বদলে)।  
+- **Remote Error:** চেক করুন → `git remote -v`  
+- **Commit ভুল হলে:** `git reset --soft HEAD~1`  
+- **সবকিছু রিসেট করতে:** `git reset --hard`  
 
 ```
+
+---
+
+👉 এভাবে Cheatsheet-টা এখন আরও **বিস্তারিত, step-by-step, এবং exam/project-ready** হলো।  
+আপনি চাইলে আমি এটাকে **color-coded emoji highlights** দিয়ে আরও visually engaging করে দিতে পারি।
