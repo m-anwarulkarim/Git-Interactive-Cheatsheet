@@ -122,4 +122,3 @@ git config --global user.email "dev.anwarul@gmail.com"
 
 **Author:** *ANWARUL KARIM*  
 **Updated:** 2025
-```
