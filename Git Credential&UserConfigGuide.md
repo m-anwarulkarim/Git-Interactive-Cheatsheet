@@ -1,5 +1,5 @@
 
-# Git Credential & User Config Guide
+# Git Credential & User Config
 
 এই ডকুমেন্টে Git-এর কিছু গুরুত্বপূর্ণ কমান্ডের কাজ ব্যাখ্যা করা হলো।  
 এগুলো ব্যবহার করে  GitHub credential এবং user identity ম্যানেজ করা যায় ।
